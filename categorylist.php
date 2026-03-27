@@ -1,0 +1,14 @@
+<div>
+    <h1 class="heading">Categories</h1>
+    <?php
+    $query  = "SELECT * FROM category";
+    $result = $conn->query($query);
+    foreach ($result as $row) {
+        $name = htmlspecialchars(ucfirst($row['name']));
+        $id   = intval($row['id']);
+        echo "<div class='row question-list'>
+            <h4><a href='?c-id=$id'>$name</a></h4>
+        </div>";
+    }
+    ?>
+</div>
